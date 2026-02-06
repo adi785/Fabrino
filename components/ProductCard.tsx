@@ -12,7 +12,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, onBuyNow })
   const handleShare = async (e: React.MouseEvent) => {
     e.stopPropagation();
     const shareData = {
-      title: `Fabrino | ${product.name}`,
+      title: `Lumina | ${product.name}`,
       text: `${product.tagline} - ${product.description}`,
       url: window.location.origin + '?product=' + product.id,
     };

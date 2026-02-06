@@ -21,7 +21,7 @@ const ProductView: React.FC<ProductViewProps> = ({ product, onBack, onAddToCart 
 
   const handleShare = async () => {
     const shareData = {
-      title: `Fabrino | ${product.name}`,
+      title: `Lumina | ${product.name}`,
       text: `${product.tagline} - ${product.description}`,
       url: window.location.href,
     };

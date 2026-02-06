@@ -147,7 +147,7 @@ const AccountSetup: React.FC<AccountSetupProps> = ({ onComplete, userId }) => {
                   <div className="relative z-10 space-y-8">
                     <div className="flex justify-between items-start">
                       <div className="w-12 h-8 bg-white/20 rounded-md" />
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase opacity-60 italic">Fabrino Card</span>
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase opacity-60 italic">Lumina Card</span>
                     </div>
                     <p className="text-xl tracking-[0.2em] font-light">
                       {formData.cardNumber ? formData.cardNumber.replace(/\d{4}(?=.)/g, '$& ') : '•••• •••• •••• ••••'}
@@ -241,7 +241,7 @@ const AccountSetup: React.FC<AccountSetupProps> = ({ onComplete, userId }) => {
         </div>
 
         <p className="mt-12 text-center text-[10px] text-gray-400 uppercase tracking-[0.2em] leading-relaxed">
-          Your data is encrypted with Fabrino Quantum Shielding.<br />
+          Your data is encrypted with Lumina Quantum Shielding.<br />
           By completing this setup, you agree to our Collector Terms & Manifestation Standards.
         </p>
       </div>

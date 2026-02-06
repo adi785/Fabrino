@@ -16,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({ onPersonalize, onExplore }) => {
           <span className="italic text-gray-400 font-normal">layer by layer.</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-gray-500 mb-12 font-light italic">
-          Fabrino Studio fuses generative algorithms with additive manufacturing to create one-of-a-kind 3D printed artifacts. We don't just print objects; we solidify emotions.
+          Lumina Studio fuses generative algorithms with additive manufacturing to create one-of-a-kind 3D printed artifacts. We don't just print objects; we solidify emotions.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 

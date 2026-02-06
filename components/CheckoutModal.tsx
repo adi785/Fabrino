@@ -66,7 +66,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
 
       setLoadingText('Securing Computational Power...');
       await new Promise(r => setTimeout(r, 800));
-      setLoadingText('Synchronizing with the Fabrino Vault...');
+      setLoadingText('Synchronizing with the Lumina Vault...');
       await new Promise(r => setTimeout(r, 800));
       setLoadingText('Finalizing Print Sequence...');
       await new Promise(r => setTimeout(r, 1000));

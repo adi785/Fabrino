@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({
           }}
           className={`cursor-pointer flex items-center gap-2 shrink-0 ${isMobileSearchOpen ? 'hidden sm:flex' : 'flex'}`}
         >
-          <span className="serif text-2xl font-bold tracking-tight text-gray-900">Fabrino</span>
+          <span className="serif text-2xl font-bold tracking-tight text-gray-900">Lumina</span>
           <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 mb-4"></div>
         </div>
         

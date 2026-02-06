@@ -44,7 +44,7 @@ const App: React.FC = () => {
       if (currentUser) {
         checkOnboardingStatus(currentUser.id);
       }
-    });
+    }).catch(err => console.error("Session check failed:", err));
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
@@ -96,14 +96,20 @@ const App: React.FC = () => {
       if (error) throw error;
       
       if (data && data.length > 0) {
-        const mappedProducts = data.map((item: any) => ({
-          ...item,
-          customizableFields: Array.isArray(item.customizable_fields) 
-            ? item.customizable_fields 
-            : (item.customizableFields || [])
-        })) as Product[];
-        setProducts(mappedProducts);
-        setDbConnected(true);
+        const mappedProducts = data.map((item: any) => {
+          if (!item) return null;
+          return {
+            ...item,
+            customizableFields: Array.isArray(item.customizable_fields) 
+              ? item.customizable_fields 
+              : (item.customizableFields || [])
+          };
+        }).filter(Boolean) as Product[];
+        
+        if (mappedProducts.length > 0) {
+          setProducts(mappedProducts);
+          setDbConnected(true);
+        }
       }
     } catch (err) {
       console.error('Error fetching products from Supabase:', err);
@@ -196,14 +202,15 @@ const App: React.FC = () => {
   };
 
   const filteredProducts = products.filter(p => {
+    if (!p) return false;
     const matchesIntent = activeIntent === 'All' || p.category === activeIntent;
-    const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         p.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         p.tagline.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = (p.name?.toLowerCase() || '').includes(searchTerm.toLowerCase()) || 
+                         (p.description?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+                         (p.tagline?.toLowerCase() || '').includes(searchTerm.toLowerCase());
     return matchesIntent && matchesSearch;
   });
 
-  const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = cart.reduce((acc, item) => acc + (item.price || 0) * (item.quantity || 1), 0);
 
   return (
     <div className="min-h-screen text-gray-900">
@@ -240,7 +247,7 @@ const App: React.FC = () => {
           userId={user.id} 
           onComplete={() => {
             setView('home');
-            showToast('Welcome to Fabrino Studio');
+            showToast('Welcome to Lumina Studio');
           }} 
         />
       )}
@@ -348,7 +355,7 @@ const App: React.FC = () => {
                   "The things that matter most aren't things. They're the feelings we attach to them."
                 </blockquote>
                 <div className="h-px w-20 bg-emerald-500/50 mx-auto mb-8" />
-                <p className="text-gray-400 tracking-[0.3em] uppercase text-xs font-bold">Fabrino Studio &bull; Est. 2024</p>
+                <p className="text-gray-400 tracking-[0.3em] uppercase text-xs font-bold">Lumina Studio &bull; Est. 2024</p>
              </div>
           </section>
         </main>
@@ -403,7 +410,7 @@ const App: React.FC = () => {
       <footer className="bg-[#FAF9F6] border-t border-gray-100 py-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
           <div className="col-span-2">
-            <h4 className="serif text-2xl font-bold mb-6">Fabrino</h4>
+            <h4 className="serif text-2xl font-bold mb-6">Lumina</h4>
             <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
               Design-led personalization for the meaningful milestones in your life. Crafted with care, driven by emotion.
             </p>
@@ -434,7 +441,7 @@ const App: React.FC = () => {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between gap-6">
-           <p className="text-[10px] text-gray-400 uppercase tracking-widest">&copy; 2024 Fabrino Objects Inc. All rights reserved.</p>
+           <p className="text-[10px] text-gray-400 uppercase tracking-widest">&copy; 2024 Lumina Objects Inc. All rights reserved.</p>
            <div className="flex gap-8 text-[10px] text-gray-400 uppercase tracking-widest font-bold">
               <a href="#">Privacy</a>
               <a href="#">Terms</a>

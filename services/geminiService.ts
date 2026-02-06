@@ -1,12 +1,15 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-
 export const getGiftMuseSuggestions = async (prompt: string) => {
-  if (!process.env.API_KEY) return null;
+  const apiKey = process.env.API_KEY;
+  if (!apiKey) {
+    console.warn("Artifact Muse: API_KEY is missing. Suggestions disabled.");
+    return null;
+  }
 
   try {
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: `You are 'The Artifact Muse', an expert in generative design and personalized 3D printing. 
@@ -30,7 +33,7 @@ export const getGiftMuseSuggestions = async (prompt: string) => {
       }
     });
 
-    return JSON.parse(response.text);
+    return JSON.parse(response.text || '[]');
   } catch (error) {
     console.error("Gemini API Error:", error);
     return null;

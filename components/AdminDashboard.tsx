@@ -163,7 +163,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ products, onRefresh, on
         customizable_fields: formData.customizableFields
       };
 
-      setStatusMessage('Syncing with Fabrino Core...');
+      setStatusMessage('Syncing with Lumina Core...');
       let error;
       if (editingProduct?.id) {
         ({ error } = await supabase
@@ -254,7 +254,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ products, onRefresh, on
               Return to Studio
             </button>
             <h1 className="serif text-5xl text-gray-900 font-bold tracking-tight">Collection Manager</h1>
-            <p className="text-gray-500 italic mt-2">Curate and manifest the Fabrino catalogue.</p>
+            <p className="text-gray-500 italic mt-2">Curate and manifest the Lumina catalogue.</p>
           </div>
           
           <button 
