@@ -29,7 +29,7 @@ export const PRODUCTS: Product[] = [
     id: '3',
     name: 'The Lithos Pillar',
     tagline: 'Light-Revealed Memories',
-    description: 'A 3D-printed translucent pillar that uses varying material thickness to project a high-resolution photograph when illuminated from within.',
+    description: 'A 3D-printed translucent pillar that uses varying material thickness to project a high-resolution photograph when ilFabinoted from within.',
     price: 125,
     image: 'https://images.unsplash.com/photo-1572913017567-ed532657e2a8?auto=format&fit=crop&q=80&w=800',
     category: 'Custom Gifts',

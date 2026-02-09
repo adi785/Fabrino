@@ -16,16 +16,16 @@ const Hero: React.FC<HeroProps> = ({ onPersonalize, onExplore }) => {
           <span className="italic text-gray-400 font-normal">layer by layer.</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg text-gray-500 mb-12 font-light italic">
-          Lumina Studio fuses generative algorithms with additive manufacturing to create one-of-a-kind 3D printed artifacts. We don't just print objects; we solidify emotions.
+          Fabino Studio fuses generative algorithms with additive manufacturing to create one-of-a-kind 3D printed artifacts. We don't just print objects; we solidify emotions.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button 
+          <button
             onClick={onPersonalize}
             className="px-10 py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all font-medium text-sm shadow-xl shadow-gray-200"
           >
             Personalize a Gift
           </button>
-          <button 
+          <button
             onClick={onExplore}
             className="px-10 py-4 bg-white border border-gray-200 text-gray-900 rounded-full hover:border-gray-900 transition-all font-medium text-sm"
           >

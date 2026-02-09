@@ -25,7 +25,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
 
   const handleProcess = async () => {
     setStep('processing');
-    
+
     try {
       if (isSupabaseConfigured() && supabase) {
         // 1. Create the order with optional user_id
@@ -66,7 +66,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
 
       setLoadingText('Securing Computational Power...');
       await new Promise(r => setTimeout(r, 800));
-      setLoadingText('Synchronizing with the Lumina Vault...');
+      setLoadingText('Synchronizing with the Fabino Vault...');
       await new Promise(r => setTimeout(r, 800));
       setLoadingText('Finalizing Print Sequence...');
       await new Promise(r => setTimeout(r, 1000));
@@ -92,7 +92,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={onClose} />
-      
+
       <div className="relative bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
         <div className="p-8 md:p-12">
           {step === 'shipping' && (
@@ -102,38 +102,38 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
                 <span className="text-[10px] font-bold text-gray-300 tracking-[0.3em] uppercase mb-1">Step 01/02</span>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <input 
-                  placeholder="First Name" 
+                <input
+                  placeholder="First Name"
                   value={formData.firstName}
                   onChange={(e) => updateForm('firstName', e.target.value)}
-                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm" 
+                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm"
                 />
-                <input 
-                  placeholder="Last Name" 
+                <input
+                  placeholder="Last Name"
                   value={formData.lastName}
                   onChange={(e) => updateForm('lastName', e.target.value)}
-                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm" 
+                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm"
                 />
-                <input 
-                  placeholder="Shipping Address" 
+                <input
+                  placeholder="Shipping Address"
                   value={formData.address}
                   onChange={(e) => updateForm('address', e.target.value)}
-                  className="col-span-2 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm" 
+                  className="col-span-2 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm"
                 />
-                <input 
-                  placeholder="City" 
+                <input
+                  placeholder="City"
                   value={formData.city}
                   onChange={(e) => updateForm('city', e.target.value)}
-                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm" 
+                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm"
                 />
-                <input 
-                  placeholder="Postal Code" 
+                <input
+                  placeholder="Postal Code"
                   value={formData.postalCode}
                   onChange={(e) => updateForm('postalCode', e.target.value)}
-                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm" 
+                  className="col-span-1 p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm"
                 />
               </div>
-              <button 
+              <button
                 onClick={() => setStep('payment')}
                 disabled={!formData.firstName || !formData.address}
                 className="w-full bg-gray-900 text-white py-4 rounded-xl font-bold hover:bg-black transition-all disabled:opacity-50"
@@ -168,7 +168,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
                   <input placeholder="CVC" className="p-4 border border-gray-100 rounded-xl outline-none focus:ring-1 focus:ring-emerald-500/50 text-sm" />
                 </div>
               </div>
-              <button 
+              <button
                 onClick={handleProcess}
                 className="w-full bg-emerald-900 text-white py-4 rounded-xl font-bold hover:bg-emerald-800 transition-all shadow-lg shadow-emerald-900/10"
               >
@@ -195,7 +195,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
           {step === 'success' && (
             <div className="py-12 flex flex-col items-center text-center space-y-8 animate-in slide-in-from-bottom-8 duration-700">
               <div className="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
-                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
               </div>
               <div className="space-y-4">
                 <h3 className="serif text-4xl text-gray-900">Story Received</h3>
@@ -203,7 +203,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, total, c
                   Your customization has been archived in our vault. Your artifact is now queued for physical manifestation. You'll receive a notification when the first layer is printed.
                 </p>
               </div>
-              <button 
+              <button
                 onClick={onClose}
                 className="px-12 py-4 border border-gray-200 rounded-full text-sm font-bold hover:bg-gray-50 transition-all"
               >
