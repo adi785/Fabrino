@@ -247,7 +247,7 @@ const App: React.FC = () => {
           userId={user.id} 
           onComplete={() => {
             setView('home');
-            showToast('Welcome to fabino Studio');
+            showToast('Welcome to Fabino Studio');
           }} 
         />
       )}
@@ -410,7 +410,7 @@ const App: React.FC = () => {
       <footer className="bg-[#FAF9F6] border-t border-gray-100 py-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
           <div className="col-span-2">
-            <h4 className="serif text-2xl font-bold mb-6">fabino</h4>
+            <h4 className="serif text-2xl font-bold mb-6">Fabino</h4>
             <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
               Design-led personalization for the meaningful milestones in your life. Crafted with care, driven by emotion.
             </p>
@@ -441,7 +441,7 @@ const App: React.FC = () => {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between gap-6">
-           <p className="text-[10px] text-gray-400 uppercase tracking-widest">&copy; 2024 fabino Objects Inc. All rights reserved.</p>
+           <p className="text-[10px] text-gray-400 uppercase tracking-widest">&copy; 2026 JU Makerspace Objects Inc. All rights reserved.</p>
            <div className="flex gap-8 text-[10px] text-gray-400 uppercase tracking-widest font-bold">
               <a href="#">Privacy</a>
               <a href="#">Terms</a>
